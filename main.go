@@ -5,6 +5,7 @@ import (
 	"os"
 	"runtime/debug"
 	"strings"
+	"unicode"
 
 	"github.com/dazeus/dazeus-go"
 )
@@ -44,6 +45,9 @@ func sponsify(s string) string {
 	ret := ""
 	even := true
 	for _, c := range s {
+		if unicode.IsSpace(c) {
+			continue
+		}
 		if even {
 			ret = ret + strings.ToLower(string(c))
 		} else {

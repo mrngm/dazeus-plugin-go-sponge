@@ -46,6 +46,7 @@ func sponsify(s string) string {
 	even := true
 	for _, c := range s {
 		if unicode.IsSpace(c) {
+			ret = ret + " "
 			continue
 		}
 		if even {
